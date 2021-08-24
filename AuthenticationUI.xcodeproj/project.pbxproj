@@ -17,6 +17,7 @@
 		E24B5EC026D4CB8500C0DFD3 /* AuthenticationUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5EBF26D4CB8500C0DFD3 /* AuthenticationUIUITests.swift */; };
 		E24B5ECF26D4CC6600C0DFD3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ECE26D4CC6600C0DFD3 /* Home.swift */; };
 		E24B5ED126D4CCAA00C0DFD3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ED026D4CCAA00C0DFD3 /* Login.swift */; };
+		E24B5ED326D4E18500C0DFD3 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ED226D4E18500C0DFD3 /* SignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		E24B5EC126D4CB8500C0DFD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E24B5ECE26D4CC6600C0DFD3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		E24B5ED026D4CCAA00C0DFD3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E24B5ED226D4E18500C0DFD3 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				E24B5ECE26D4CC6600C0DFD3 /* Home.swift */,
 				E24B5ED026D4CCAA00C0DFD3 /* Login.swift */,
+				E24B5ED226D4E18500C0DFD3 /* SignUp.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E24B5E9E26D4CB8300C0DFD3 /* AppDelegate.swift in Sources */,
+				E24B5ED326D4E18500C0DFD3 /* SignUp.swift in Sources */,
 				E24B5ED126D4CCAA00C0DFD3 /* Login.swift in Sources */,
 				E24B5EA026D4CB8300C0DFD3 /* SceneDelegate.swift in Sources */,
 				E24B5ECF26D4CC6600C0DFD3 /* Home.swift in Sources */,

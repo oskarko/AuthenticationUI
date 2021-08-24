@@ -1,5 +1,5 @@
 //
-//  Login.swift
+//  SignUp.swift
 //  AuthenticationUI
 //
 //  Created by Oscar R. Garrucho.
@@ -9,21 +9,23 @@
 
 import SwiftUI
 
-struct Login: View {
+struct SignUp: View {
     
     // MARK: - Properties
     
     @State var color = Color.black.opacity(0.7)
     @State var email = ""
     @State var password = ""
-    @State var isVisible = false
+    @State var confirmPassword = ""
+    @State var isPasswordVisible = false
+    @State var isConfirmPasswordVisible = false
     @Binding var show: Bool
     
     
     // MARK: - View
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
+        ZStack(alignment: .topLeading) {
             
             GeometryReader { _ in
                 VStack {
@@ -33,7 +35,7 @@ struct Login: View {
                         .scaledToFit()
                         .frame(width: 250.0, height: 235.0)
                     
-                    Text("Log in to your account")
+                    Text("Register your account")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(color)
@@ -49,7 +51,7 @@ struct Login: View {
                     
                     HStack(spacing: 15) {
                         VStack {
-                            if isVisible {
+                            if isPasswordVisible {
                                 TextField("Password", text: $password)
                             } else {
                                 SecureField("Password", text: $password)
@@ -57,9 +59,9 @@ struct Login: View {
                         } // VStack
                         
                         Button(action: {
-                            isVisible.toggle()
+                            isPasswordVisible.toggle()
                         }) {
-                            Image(systemName: isVisible ? "eye.slash.fill" : "eye.fill")
+                            Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
                                 .foregroundColor(color)
                         }
                     } // HStack
@@ -70,23 +72,34 @@ struct Login: View {
                     )
                     .padding(.top, 25)
                     
-                    HStack {
-                        Spacer()
+                    HStack(spacing: 15) {
+                        VStack {
+                            if isConfirmPasswordVisible {
+                                TextField("Confirm password", text: $confirmPassword)
+                            } else {
+                                SecureField("Confirm password", text: $confirmPassword)
+                            }
+                        } // VStack
                         
                         Button(action: {
-                            
+                            isConfirmPasswordVisible.toggle()
                         }) {
-                            Text("Forget password")
-                                .fontWeight(.bold)
-                                .foregroundColor(.accentColor)
+                            Image(systemName: isConfirmPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                                .foregroundColor(color)
                         }
                     } // HStack
-                    .padding(.top, 20)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 4)
+                            .stroke(!confirmPassword.isEmpty ? Color.accentColor : color, lineWidth: 2)
+                    )
+                    .padding(.top, 25)
+                    
                     
                     Button(action: {
                         
                     }) {
-                        Text("Log in")
+                        Text("Register")
                             .foregroundColor(.white)
                             .padding(.vertical)
                             .frame(width: UIScreen.main.bounds.width - 50)
@@ -104,12 +117,14 @@ struct Login: View {
             Button(action: {
                 show.toggle()
             }) {
-                Text("Register")
+                Image(systemName: "chevron.left")
+                    .font(.title)
                     .foregroundColor(.accentColor)
-                    .fontWeight(.bold)
             }
             .padding()
             
         } // ZStack
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }

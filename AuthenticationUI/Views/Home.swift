@@ -11,11 +11,25 @@ import SwiftUI
 
 struct Home: View {
     
+    // MARK: - Properties
+    
+    @State var show = false
+    
     // MARK: - View
     
     var body: some View {
-        VStack {
-            Spacer()
+        NavigationView {
+            ZStack {
+                NavigationLink(destination: SignUp(show: $show), isActive: $show) {
+                    Text("")
+                }
+                .hidden()
+                
+                Login(show: $show)
+            }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
