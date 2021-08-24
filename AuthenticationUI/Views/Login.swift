@@ -18,98 +18,117 @@ struct Login: View {
     @State var password = ""
     @State var isVisible = false
     @Binding var show: Bool
+    @State var alert = false
+    @State var error = ""
     
     
     // MARK: - View
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            
-            GeometryReader { _ in
-                VStack {
-                    Spacer()
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 250.0, height: 235.0)
-                    
-                    Text("Log in to your account")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(color)
-                        .padding(.top, 35)
-                    
-                    TextField("Email", text: $email)
+        ZStack{
+            ZStack(alignment: .topTrailing) {
+                
+                GeometryReader { _ in
+                    VStack {
+                        Spacer()
+                        Image("logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 250.0, height: 235.0)
+                        
+                        Text("Log in to your account")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(color)
+                            .padding(.top, 35)
+                        
+                        TextField("Email", text: $email)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 4)
+                                    .stroke(!email.isEmpty ? Color.accentColor : color, lineWidth: 2)
+                            )
+                            .padding(.top, 25)
+                        
+                        HStack(spacing: 15) {
+                            VStack {
+                                if isVisible {
+                                    TextField("Password", text: $password)
+                                } else {
+                                    SecureField("Password", text: $password)
+                                }
+                            } // VStack
+                            
+                            Button(action: {
+                                isVisible.toggle()
+                            }) {
+                                Image(systemName: isVisible ? "eye.slash.fill" : "eye.fill")
+                                    .foregroundColor(color)
+                            }
+                        } // HStack
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 4)
-                                .stroke(!email.isEmpty ? Color.accentColor : color, lineWidth: 2)
+                                .stroke(!password.isEmpty ? Color.accentColor : color, lineWidth: 2)
                         )
                         .padding(.top, 25)
-                    
-                    HStack(spacing: 15) {
-                        VStack {
-                            if isVisible {
-                                TextField("Password", text: $password)
-                            } else {
-                                SecureField("Password", text: $password)
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Button(action: {
+                                
+                            }) {
+                                Text("Forget password")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.accentColor)
                             }
-                        } // VStack
+                        } // HStack
+                        .padding(.top, 20)
                         
                         Button(action: {
-                            isVisible.toggle()
+                            verify()
                         }) {
-                            Image(systemName: isVisible ? "eye.slash.fill" : "eye.fill")
-                                .foregroundColor(color)
+                            Text("Log in")
+                                .foregroundColor(.white)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width - 50)
                         }
-                    } // HStack
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(!password.isEmpty ? Color.accentColor : color, lineWidth: 2)
-                    )
-                    .padding(.top, 25)
-                    
-                    HStack {
+                        .background(Color.accentColor)
+                        .cornerRadius(10)
+                        .padding(.top, 25)
+                        
                         Spacer()
                         
-                        Button(action: {
-                            
-                        }) {
-                            Text("Forget password")
-                                .fontWeight(.bold)
-                                .foregroundColor(.accentColor)
-                        }
-                    } // HStack
-                    .padding(.top, 20)
-                    
-                    Button(action: {
-                        
-                    }) {
-                        Text("Log in")
-                            .foregroundColor(.white)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 50)
-                    }
-                    .background(Color.accentColor)
-                    .cornerRadius(10)
-                    .padding(.top, 25)
-                    
-                    Spacer()
-                    
-                } // VStack
-                .padding(.horizontal, 25)
-            } // GeometryReader
+                    } // VStack
+                    .padding(.horizontal, 25)
+                } // GeometryReader
+                
+                Button(action: {
+                    show.toggle()
+                }) {
+                    Text("Register")
+                        .foregroundColor(.accentColor)
+                        .fontWeight(.bold)
+                }
+                .padding()
+                
+            } // ZStack
             
-            Button(action: {
-                show.toggle()
-            }) {
-                Text("Register")
-                    .foregroundColor(.accentColor)
-                    .fontWeight(.bold)
+            if alert {
+                ErrorView(alert: $alert, error: $error)
             }
-            .padding()
-            
         } // ZStack
+    }
+    
+    // MARK: - Helpers
+    
+    func verify() {
+        if !email.isEmpty && !password.isEmpty {
+            
+        } else {
+            error = "Please fill all the contents properly"
+            alert.toggle()
+        }
     }
 }
