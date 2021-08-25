@@ -7,6 +7,7 @@
 //  Copyright © 2021 Oscar R. Garrucho. All rights reserved.
 //
 
+import Firebase
 import SwiftUI
 
 struct LoginView: View {
@@ -43,6 +44,7 @@ struct LoginView: View {
                             .padding(.top, 35)
                         
                         TextField("Email", text: $email)
+                            .autocapitalization(.none)
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 4)
@@ -54,8 +56,12 @@ struct LoginView: View {
                             VStack {
                                 if isVisible {
                                     TextField("Password", text: $password)
+                                        .autocapitalization(.none)
+                                        .textContentType(.oneTimeCode)
                                 } else {
                                     SecureField("Password", text: $password)
+                                        .autocapitalization(.none)
+                                        .textContentType(.oneTimeCode)
                                 }
                             } // VStack
                             
@@ -77,7 +83,7 @@ struct LoginView: View {
                             Spacer()
                             
                             Button(action: {
-                                
+                                reset()
                             }) {
                                 Text("Forget password")
                                     .fontWeight(.bold)
@@ -123,11 +129,43 @@ struct LoginView: View {
     
     // MARK: - Helpers
     
-    func verify() {
-        if !email.isEmpty && !password.isEmpty {
-            
-        } else {
+    private func verify() {
+        guard !email.isEmpty && !password.isEmpty else {
             error = "Please fill all the contents properly"
+            alert.toggle()
+            
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                self.error = error.localizedDescription
+                alert.toggle()
+            } else {
+                print("Login success!")
+                UserDefaults.standard.setValue(true, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+            }
+        }
+    }
+    
+    private func reset() {
+        guard !email.isEmpty else {
+            self.error = "Email cannot be empty"
+            alert.toggle()
+            
+            return
+        }
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            guard let error = error else {
+                self.error = "RESET"
+                alert.toggle()
+                
+                return
+            }
+            
+            self.error = error.localizedDescription
             alert.toggle()
         }
     }

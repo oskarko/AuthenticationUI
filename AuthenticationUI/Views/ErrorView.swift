@@ -24,7 +24,7 @@ struct ErrorView: View {
             VStack {
                 VStack {
                     HStack {
-                        Text("Error")
+                        Text(error == "RESET" ? "Message" : "Error")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(color)
@@ -33,7 +33,7 @@ struct ErrorView: View {
                     } // HStack
                     .padding(.horizontal, 25)
                     
-                    Text(error)
+                    Text(error == "RESET" ? "Password reset link has been sent successfully" : error)
                         .foregroundColor(color)
                         .padding(.top)
                         .padding(.horizontal, 25)
@@ -41,7 +41,7 @@ struct ErrorView: View {
                     Button(action: {
                         alert.toggle()
                     }) {
-                        Text("Cancel")
+                        Text(error == "RESET" ? "Ok" : "Cancel")
                             .foregroundColor(.white)
                             .padding(.vertical)
                             .frame(width: UIScreen.main.bounds.width - 120)

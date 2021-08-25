@@ -7,35 +7,33 @@
 //  Copyright © 2021 Oscar R. Garrucho. All rights reserved.
 //
 
+import Firebase
 import SwiftUI
 
 struct HomeView: View {
-    
-    // MARK: - Properties
-    
-    @State var show = false
-    
-    // MARK: - View
-    
     var body: some View {
-        NavigationView {
-            ZStack {
-                NavigationLink(destination: SignUpView(show: $show), isActive: $show) {
-                    Text("")
-                }
-                .hidden()
-                
-                LoginView(show: $show)
-            }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
+        Text("Hello, World!")
+            .font(.title)
+            .fontWeight(.bold)
+            .foregroundColor(Color.black.opacity(0.7))
+        
+        Button(action: {
+            try! Auth.auth().signOut()
+            UserDefaults.standard.setValue(false, forKey: "status")
+            NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+        }) {
+            Text("Log out")
+                .foregroundColor(.white)
+                .padding(.vertical)
+                .frame(width: UIScreen.main.bounds.width - 50)
         }
+        .background(Color.accentColor)
+        .cornerRadius(10)
+        .padding(.top, 25)
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
-    
     static var previews: some View {
         HomeView()
     }
