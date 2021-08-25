@@ -11,6 +11,14 @@ import Firebase
 import SwiftUI
 
 struct HomeView: View {
+    
+    // MARK: - Properties
+    
+    @AppStorage("status") var status: Bool = false
+    
+    
+    // MARK: - View
+    
     var body: some View {
         Text("Hello, World!")
             .font(.title)
@@ -19,8 +27,7 @@ struct HomeView: View {
         
         Button(action: {
             try! Auth.auth().signOut()
-            UserDefaults.standard.setValue(false, forKey: "status")
-            NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+            status = false
         }) {
             Text("Log out")
                 .foregroundColor(.white)

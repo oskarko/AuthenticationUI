@@ -14,7 +14,8 @@ struct AuthView: View {
     // MARK: - Properties
     
     @State var show = false
-    @State var status = UserDefaults.standard.bool(forKey: "status")
+    @AppStorage("status") var status: Bool = false
+    
     
     // MARK: - View
     
@@ -37,11 +38,6 @@ struct AuthView: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-            .onAppear() {
-                NotificationCenter.default.addObserver(forName: Notification.Name("status"), object: nil, queue: .main) { _ in
-                    status = UserDefaults.standard.bool(forKey: "status")
-                }
-            }
         }
     }
 }

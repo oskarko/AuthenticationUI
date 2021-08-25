@@ -23,6 +23,7 @@ struct SignUpView: View {
     @Binding var show: Bool
     @State var alert = false
     @State var error = ""
+    @AppStorage("status") var status: Bool = false
     
     
     // MARK: - View
@@ -147,6 +148,7 @@ struct SignUpView: View {
         .navigationBarBackButtonHidden(true)
     }
     
+    
     // MARK: - Helpers
     
     func register() {
@@ -157,9 +159,7 @@ struct SignUpView: View {
                         self.error = error.localizedDescription
                         alert.toggle()
                     } else {
-                        print("SignUp success!")
-                        UserDefaults.standard.setValue(true, forKey: "status")
-                        NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                        status = true
                     }
                 }
             } else {
