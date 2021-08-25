@@ -23,8 +23,6 @@ struct SignUpView: View {
     @Binding var show: Bool
     @State var alert = false
     @State var error = ""
-    @AppStorage("status") var status: Bool = false
-    
     
     // MARK: - View
     
@@ -148,7 +146,6 @@ struct SignUpView: View {
         .navigationBarBackButtonHidden(true)
     }
     
-    
     // MARK: - Helpers
     
     func register() {
@@ -159,7 +156,7 @@ struct SignUpView: View {
                         self.error = error.localizedDescription
                         alert.toggle()
                     } else {
-                        status = true
+                        UserDefaults.standard.setValue(true, forKey: "status")
                     }
                 }
             } else {

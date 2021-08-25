@@ -16,7 +16,6 @@ struct AuthView: View {
     @State var show = false
     @AppStorage("status") var status: Bool = false
     
-    
     // MARK: - View
     
     var body: some View {

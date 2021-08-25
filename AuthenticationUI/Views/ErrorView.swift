@@ -17,7 +17,6 @@ struct ErrorView: View {
     @Binding var alert: Bool
     @Binding var error: String
     
-    
     // MARK: - Body
     
     var body: some View {

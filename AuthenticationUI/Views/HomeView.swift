@@ -14,10 +14,7 @@ struct HomeView: View {
     
     // MARK: - Properties
     
-    @AppStorage("status") var status: Bool = false
-    
-    
-    // MARK: - View
+    // MARK: - Body
     
     var body: some View {
         Text("Hello, World!")
@@ -27,7 +24,7 @@ struct HomeView: View {
         
         Button(action: {
             try! Auth.auth().signOut()
-            status = false
+            UserDefaults.standard.setValue(false, forKey: "status")
         }) {
             Text("Log out")
                 .foregroundColor(.white)

@@ -22,7 +22,6 @@ struct LoginView: View {
     @State var alert = false
     @State var error = ""
     
-    
     // MARK: - View
     
     var body: some View {
