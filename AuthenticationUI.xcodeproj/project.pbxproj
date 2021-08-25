@@ -15,9 +15,9 @@
 		E24B5EAA26D4CB8500C0DFD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24B5EA826D4CB8500C0DFD3 /* LaunchScreen.storyboard */; };
 		E24B5EB526D4CB8500C0DFD3 /* AuthenticationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5EB426D4CB8500C0DFD3 /* AuthenticationUITests.swift */; };
 		E24B5EC026D4CB8500C0DFD3 /* AuthenticationUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5EBF26D4CB8500C0DFD3 /* AuthenticationUIUITests.swift */; };
-		E24B5ECF26D4CC6600C0DFD3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ECE26D4CC6600C0DFD3 /* Home.swift */; };
-		E24B5ED126D4CCAA00C0DFD3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ED026D4CCAA00C0DFD3 /* Login.swift */; };
-		E24B5ED326D4E18500C0DFD3 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ED226D4E18500C0DFD3 /* SignUp.swift */; };
+		E24B5ECF26D4CC6600C0DFD3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ECE26D4CC6600C0DFD3 /* HomeView.swift */; };
+		E24B5ED126D4CCAA00C0DFD3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ED026D4CCAA00C0DFD3 /* LoginView.swift */; };
+		E24B5ED326D4E18500C0DFD3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ED226D4E18500C0DFD3 /* SignUpView.swift */; };
 		E24B5ED526D4F28100C0DFD3 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B5ED426D4F28100C0DFD3 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,9 +53,9 @@
 		E24B5EBB26D4CB8500C0DFD3 /* AuthenticationUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticationUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E24B5EBF26D4CB8500C0DFD3 /* AuthenticationUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUIUITests.swift; sourceTree = "<group>"; };
 		E24B5EC126D4CB8500C0DFD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E24B5ECE26D4CC6600C0DFD3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		E24B5ED026D4CCAA00C0DFD3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		E24B5ED226D4E18500C0DFD3 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		E24B5ECE26D4CC6600C0DFD3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E24B5ED026D4CCAA00C0DFD3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E24B5ED226D4E18500C0DFD3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E24B5ED426D4F28100C0DFD3 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,9 +148,9 @@
 		E24B5ECD26D4CC5600C0DFD3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E24B5ECE26D4CC6600C0DFD3 /* Home.swift */,
-				E24B5ED026D4CCAA00C0DFD3 /* Login.swift */,
-				E24B5ED226D4E18500C0DFD3 /* SignUp.swift */,
+				E24B5ECE26D4CC6600C0DFD3 /* HomeView.swift */,
+				E24B5ED026D4CCAA00C0DFD3 /* LoginView.swift */,
+				E24B5ED226D4E18500C0DFD3 /* SignUpView.swift */,
 				E24B5ED426D4F28100C0DFD3 /* ErrorView.swift */,
 			);
 			path = Views;
@@ -287,11 +287,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E24B5E9E26D4CB8300C0DFD3 /* AppDelegate.swift in Sources */,
-				E24B5ED326D4E18500C0DFD3 /* SignUp.swift in Sources */,
-				E24B5ED126D4CCAA00C0DFD3 /* Login.swift in Sources */,
+				E24B5ED326D4E18500C0DFD3 /* SignUpView.swift in Sources */,
+				E24B5ED126D4CCAA00C0DFD3 /* LoginView.swift in Sources */,
 				E24B5EA026D4CB8300C0DFD3 /* SceneDelegate.swift in Sources */,
 				E24B5ED526D4F28100C0DFD3 /* ErrorView.swift in Sources */,
-				E24B5ECF26D4CC6600C0DFD3 /* Home.swift in Sources */,
+				E24B5ECF26D4CC6600C0DFD3 /* HomeView.swift in Sources */,
 				E24B5EA226D4CB8300C0DFD3 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  Login.swift
+//  LoginView.swift
 //  AuthenticationUI
 //
 //  Created by Oscar R. Garrucho.
@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct Login: View {
+struct LoginView: View {
     
     // MARK: - Properties
     
@@ -130,5 +130,13 @@ struct Login: View {
             error = "Please fill all the contents properly"
             alert.toggle()
         }
+    }
+}
+
+struct LoginView_Previews: PreviewProvider {
+    @State static var show = false
+    
+    static var previews: some View {
+        LoginView(show: $show)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SignUp.swift
+//  SignUpView.swift
 //  AuthenticationUI
 //
 //  Created by Oscar R. Garrucho.
@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct SignUp: View {
+struct SignUpView: View {
     
     // MARK: - Properties
     
@@ -126,5 +126,13 @@ struct SignUp: View {
         } // ZStack
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+    }
+}
+
+struct SignUpView_Previews: PreviewProvider {
+    @State static var show = false
+    
+    static var previews: some View {
+        SignUpView(show: $show)
     }
 }

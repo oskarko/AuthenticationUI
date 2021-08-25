@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  HomeView.swift
 //  AuthenticationUI
 //
 //  Created by Oscar R. Garrucho.
@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct HomeView: View {
     
     // MARK: - Properties
     
@@ -20,16 +20,23 @@ struct Home: View {
     var body: some View {
         NavigationView {
             ZStack {
-                NavigationLink(destination: SignUp(show: $show), isActive: $show) {
+                NavigationLink(destination: SignUpView(show: $show), isActive: $show) {
                     Text("")
                 }
                 .hidden()
                 
-                Login(show: $show)
+                LoginView(show: $show)
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
         }
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        HomeView()
     }
 }
